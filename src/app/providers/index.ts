@@ -1,0 +1,1 @@
+export { ConfiguredRouterProvider } from './ConfiguredRouterProvider';
