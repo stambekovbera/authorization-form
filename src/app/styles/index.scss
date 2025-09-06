@@ -1,1 +1,25 @@
+@import 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap';
+
 @import 'normalize';
+
+@import 'vars/global';
+
+body {
+  font: var(--font);
+  color: var(--text-color);
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  min-height: 100dvh;
+}
+
+.page-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
