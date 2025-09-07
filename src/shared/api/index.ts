@@ -1,1 +1,1 @@
-export { worker } from './mocks/browser';
+export { api } from './api';

@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client';
 import { App } from 'app/App';
 
 async function enableMocking() {
-  const { worker } = await import('./shared/api');
+  const { worker } = await import('./mocks/browser');
 
   return worker.start();
 }
