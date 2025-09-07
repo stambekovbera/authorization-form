@@ -1,0 +1,1 @@
+import{j as s,c as a,A as o}from"./index-B9uuS79V.js";const e="pq1AgvEG",n={wrapper:e},c=r=>{const{className:t=""}=r;return s.jsx("div",{className:a(n.wrapper,{},[t]),children:s.jsx(o,{})})};export{c as AuthorizationPage};
