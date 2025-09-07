@@ -1,2 +1,9 @@
 .wrapper {
+  padding: 0;
+  margin: 0;
+  line-height: normal;
+
+  &.body-2 {
+    font-size: 12px;
+  }
 }

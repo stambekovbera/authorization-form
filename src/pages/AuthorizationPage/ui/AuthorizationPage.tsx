@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import { Button } from 'shared/ui';
+import { Authorization } from 'features/Authorization';
 
 import styles from './AuthorizationPage.module.scss';
 
@@ -13,7 +13,7 @@ export const AuthorizationPage = (props: IAuthorizationPageProps) => {
 
   return (
     <div className={cn(styles.wrapper, {}, [className])}>
-      <Button>Логин</Button>
+      <Authorization />
     </div>
   );
 };

@@ -9,10 +9,11 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button = (props: IButtonProps) => {
-  const { children, className, variant = 'contained' } = props;
+  const { children, className, variant = 'contained', ...otherProps } = props;
 
   return (
     <button
+      {...otherProps}
       className={cn(styles.wrapper, {}, [
         styles[variant],
         className,

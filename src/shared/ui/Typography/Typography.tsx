@@ -29,7 +29,7 @@ export const Typography = <TComponent extends TTypographyComponent = 'p'>(
   const {
     className,
     children,
-    variant = 'body1',
+    variant = 'body2',
     component,
     ...otherProps
   } = props;

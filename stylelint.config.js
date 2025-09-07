@@ -160,5 +160,7 @@ export default {
       true,
       { ignoreKeywords: ['button'] },
     ],
+
+    'no-descending-specificity': null,
   },
 };
