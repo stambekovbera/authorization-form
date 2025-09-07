@@ -2,5 +2,12 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }

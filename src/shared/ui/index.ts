@@ -1,3 +1,4 @@
 export { Button } from './Button/Button';
 export { Container } from './Container/Container';
-export {} from './Loader/Loader';
+export { Loader } from './Loader/Loader';
+export { Typography } from './Typography/Typography';

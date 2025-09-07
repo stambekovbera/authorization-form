@@ -1,5 +1,6 @@
 import cn from 'classnames';
 
+import { BlockWithTitle } from 'entities/BlockWithTitle';
 import { Button } from 'shared/ui';
 
 import styles from './MainPage.module.scss';
@@ -13,10 +14,12 @@ export const MainPage = (props: IMainPageProps) => {
 
   return (
     <div className={cn(styles.wrapper, {}, [className])}>
-      <div>
-        <Button>Логин</Button>
-        <Button variant="outlined">Регистрация</Button>
-      </div>
+      <BlockWithTitle title="Выберите действие">
+        <div className={styles.content}>
+          <Button>Авторизация</Button>
+          <Button variant="outlined">Регистрация</Button>
+        </div>
+      </BlockWithTitle>
     </div>
   );
 };
