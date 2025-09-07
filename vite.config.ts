@@ -8,6 +8,7 @@ export default defineConfig(({ mode }) => {
   const isDev = mode === 'development';
 
   return {
+    base: '/authorization-form/',
     plugins: [react()],
     server: {
       port: 8080,
