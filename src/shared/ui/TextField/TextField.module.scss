@@ -1,17 +1,3 @@
-:root {
-  --input-wrapper-border-color: #dadada;
-  --input-placeholder-color: #8391a1;
-  --input-wrapper-left-right-padding: 16px;
-  --input-wrapper-top-bottom-padding: 8px;
-  --input-label-left-right-padding: 4px;
-  --helper-text-left-padding: 8px;
-  --text-field-gap: 4px;
-  --input-wrapper-height: 40px;
-  --input-wrapper-border-radius: 8px;
-  --error-color: #f00;
-  --input-placeholder-error-color: #f00;
-}
-
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -20,6 +6,10 @@
 
 .input-wrapper {
   position: relative;
+  box-sizing: border-box;
+  display: flex;
+  gap: 8px;
+  align-items: center;
   height: var(--input-wrapper-height);
   padding: var(--input-wrapper-top-bottom-padding)
     var(--input-wrapper-left-right-padding);
@@ -43,7 +33,7 @@
     }
 
     .label {
-      transform: translateY(-170%) translateX(-4%) scale(0.9);
+      transform: translateY(-152%) translateX(-14%) scale(0.7);
     }
 
     .input::placeholder {
@@ -64,6 +54,12 @@
       color: var(--input-placeholder-error-color);
     }
   }
+
+  &.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 50%;
+  }
 }
 
 .input {
@@ -81,6 +77,12 @@
     opacity: 0%;
     transition: opacity 0.2s ease;
   }
+
+  &:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 50%;
+  }
 }
 
 .label {
@@ -91,9 +93,13 @@
         --input-label-left-right-padding
       )
   );
+  max-width: calc(100% - (var(--input-wrapper-left-right-padding) * 2));
   padding: 0 var(--input-label-left-right-padding);
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 16px;
   color: var(--input-placeholder-color);
+  white-space: nowrap;
   pointer-events: none;
   background-color: var(--app-background-color);
   transform: translateY(-50%);

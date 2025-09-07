@@ -8,14 +8,15 @@ import type {
 const authorizationApi = api.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation<TLoginMutationResult, ILoginMutationProps>({
-      query: (data) => ({
+      query: (props) => ({
         url: '/api/auth',
         method: 'POST',
-        body: data,
+        body: props.body,
       }),
     }),
   }),
   overrideExisting: true,
 });
 
-export const { useLoginMutation } = authorizationApi;
+export const { useLoginMutation, endpoints: authorizationApiEndpoints } =
+  authorizationApi;

@@ -33,6 +33,7 @@ const AuthorizationFormComponent = (props: IAuthorizationFormProps) => {
         textFieldProps={{
           label: 'Пароль',
         }}
+        passwordField
       />
     </div>
   );

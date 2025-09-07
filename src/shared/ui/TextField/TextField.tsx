@@ -6,6 +6,7 @@ import {
   type ReactNode,
   useId,
   useRef,
+  type MouseEvent as ReactMouseEvent,
 } from 'react';
 
 import { Typography } from 'shared/ui';
@@ -31,6 +32,8 @@ const TextFieldComponent = forwardRef<HTMLInputElement, ITextFieldProps>(
       placeholder,
       error,
       helperText,
+      autoComplete = 'off',
+      disabled,
       ...otherInputProps
     } = props;
 
@@ -40,8 +43,13 @@ const TextFieldComponent = forwardRef<HTMLInputElement, ITextFieldProps>(
     const inputId = `input-${id}`;
     const labelId = `${inputId}-label`;
 
-    const handleClickWrapper = () => {
-      if (inputRef.current) {
+    const handleClickWrapper = (
+      event: ReactMouseEvent<HTMLDivElement, MouseEvent>,
+    ) => {
+      const target = event.target as HTMLElement;
+      const isEndAdornmentClick = target.closest('.text-field-end-adornment');
+
+      if (!isEndAdornmentClick && inputRef.current) {
         inputRef.current.focus();
       }
     };
@@ -53,6 +61,7 @@ const TextFieldComponent = forwardRef<HTMLInputElement, ITextFieldProps>(
             styles.inputWrapper,
             {
               [`${styles.error}`]: error,
+              [`${styles.disabled}`]: disabled,
             },
             [],
           )}
@@ -60,6 +69,7 @@ const TextFieldComponent = forwardRef<HTMLInputElement, ITextFieldProps>(
         >
           <input
             {...otherInputProps}
+            autoComplete={autoComplete}
             className={cn(styles.input, {}, [inputClassName])}
             id={inputId}
             value={value}
@@ -73,6 +83,7 @@ const TextFieldComponent = forwardRef<HTMLInputElement, ITextFieldProps>(
                 ref.current = instance;
               }
             }}
+            disabled={disabled}
           />
           <label
             className={cn(styles.label)}
@@ -81,7 +92,9 @@ const TextFieldComponent = forwardRef<HTMLInputElement, ITextFieldProps>(
           >
             {label}
           </label>
-          {endAdornment && endAdornment}
+          {endAdornment && (
+            <div className="text-field-end-adornment">{endAdornment}</div>
+          )}
         </div>
 
         {helperText && (

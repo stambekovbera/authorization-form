@@ -5,7 +5,7 @@ import {
   type UseControllerProps,
 } from 'react-hook-form';
 
-import { type ITextFieldProps, TextField } from 'shared/ui';
+import { type ITextFieldProps, PasswordTextField, TextField } from 'shared/ui';
 
 type TOmitTextFieldProps = Omit<
   ITextFieldProps,
@@ -18,6 +18,7 @@ interface IControllerTextFieldProps<
   TTransformedValues = TFieldValues,
 > extends UseControllerProps<TFieldValues, TName, TTransformedValues> {
   textFieldProps: TOmitTextFieldProps;
+  passwordField?: boolean;
 }
 
 export const ControllerTextField = <
@@ -35,11 +36,13 @@ export const ControllerTextField = <
     shouldUnregister,
     disabled,
     textFieldProps,
+    passwordField,
   } = props;
 
   const {
     field,
     fieldState: { error },
+    formState: { disabled: formStateDisabled },
   } = useController({
     control,
     name,
@@ -49,12 +52,28 @@ export const ControllerTextField = <
     shouldUnregister,
   });
 
+  if (passwordField) {
+    return (
+      <PasswordTextField
+        {...textFieldProps}
+        name={name}
+        value={field.value}
+        disabled={formStateDisabled}
+        ref={field.ref}
+        error={!!error}
+        helperText={error?.message}
+        onChange={field.onChange}
+        onBlur={field.onBlur}
+      />
+    );
+  }
+
   return (
     <TextField
       {...textFieldProps}
       name={name}
       value={field.value}
-      disabled={disabled}
+      disabled={formStateDisabled}
       ref={field.ref}
       error={!!error}
       helperText={error?.message}

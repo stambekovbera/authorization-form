@@ -2,8 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { api } from 'shared/api';
-
-import { rootReducer } from './rootReducer';
+import { rootReducer } from 'shared/config';
 
 export const store = configureStore({
   reducer: rootReducer,

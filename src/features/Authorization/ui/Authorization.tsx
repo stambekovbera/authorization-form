@@ -17,7 +17,7 @@ interface IAuthorizationProps {
 const AuthorizationComponent = (props: IAuthorizationProps) => {
   const { className = '' } = props;
 
-  const { form, onSubmit } = useAuthorizationForm();
+  const { form, onSubmit, isSubmitting } = useAuthorizationForm();
 
   return (
     <BlockWithTitle
@@ -29,7 +29,12 @@ const AuthorizationComponent = (props: IAuthorizationProps) => {
           <AuthorizationForm />
         </FormProvider>
 
-        <Button onClick={onSubmit}>Войти</Button>
+        <Button
+          onClick={onSubmit}
+          loading={isSubmitting}
+        >
+          Войти
+        </Button>
       </div>
     </BlockWithTitle>
   );
