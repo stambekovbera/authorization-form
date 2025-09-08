@@ -24,6 +24,8 @@ const AuthorizationFormComponent = (props: IAuthorizationFormProps) => {
         name="email"
         textFieldProps={{
           label: 'Email',
+          type: 'email',
+          autoComplete: 'email',
         }}
       />
 
@@ -32,6 +34,7 @@ const AuthorizationFormComponent = (props: IAuthorizationFormProps) => {
         name="password"
         textFieldProps={{
           label: 'Пароль',
+          autoComplete: 'current-password',
         }}
         passwordField
       />

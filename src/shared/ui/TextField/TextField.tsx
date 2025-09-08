@@ -32,7 +32,6 @@ const TextFieldComponent = forwardRef<HTMLInputElement, ITextFieldProps>(
       placeholder,
       error,
       helperText,
-      autoComplete = 'off',
       disabled,
       ...otherInputProps
     } = props;
@@ -69,7 +68,6 @@ const TextFieldComponent = forwardRef<HTMLInputElement, ITextFieldProps>(
         >
           <input
             {...otherInputProps}
-            autoComplete={autoComplete}
             className={cn(styles.input, {}, [inputClassName])}
             id={inputId}
             value={value}
